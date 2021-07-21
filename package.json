@@ -1,0 +1,26 @@
+{
+  "name": "vitortestdb",
+  "version": "1.0.0",
+  "description": "Teste DB",
+  "main": "src/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/main.js",
+    "start-dev": "nodemon src/main.js -e ejs,js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ruhtra/vitortestdb.git"
+  },
+  "author": "Ruhtra",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ruhtra/vitortestdb/issues"
+  },
+  "homepage": "https://github.com/Ruhtra/vitortestdb#readme",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "mongodb": "^4.0.1"
+  }
+}

@@ -1,0 +1,72 @@
+
+        *:not(body) {
+            padding: 0;
+            margin: 0;
+        }
+        body {
+            background-color: #555;
+        }
+        header {
+            background-color: white;
+        }
+        main {
+            background-color: white;
+        }
+        header > div {
+            padding: 1vw;
+            border: 1px solid black;
+        }
+        header > div div#back {
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+
+            background-color: red;
+        }
+        header > div div#back div {
+            display: flex;
+
+            background-color: yellow;
+        }
+        header > div div#back div *:not(label, input[type=submit]) {
+            text-align: left;
+            flex-grow: 3;
+            flex-basis: 0;
+        }
+        header > div div#back div label, input[type=submit] {
+            text-align: center;
+            flex-grow: 1;
+            flex-basis: 0;
+        }
+        header > div#insert div#back div {
+            width: 80%;
+        }
+        header > div#insert div#back div#inserir {
+            justify-content: flex-end;
+            align-items: center;
+            width: 100%;
+        }
+        header > div#insert div#back div input[type=submit] {
+            flex-grow: 0.3;
+            flex-basis: 0;
+        }
+
+
+        main {
+            height: 100%;
+        }
+        table {
+            width: 100%;
+            height: 100%;
+            border: 1px solid black;
+        }
+        tr.info {
+            font-weight: 900;
+            font-size: 3.5vw;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, .4);
+            height: 50vh;
+        }
+        td {
+            text-align: center;
+            border:1px solid black ;
+        }

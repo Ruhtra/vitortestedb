@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Index</title>
+    <script src="main.js"></script>
+</head>
+<body>
+    <header>
+        <div id="search">
+            <div id="up">
+                <h1>Search</h1>
+            </div>
+            <div id="back">
+                <div id="name">
+                    <label for="searchName">Name:</label>
+                    <input type="text" name="searchName" id="Name" placeholder="Digite um nome para busca">
+                    <input type="submit" name="searchName" id="searchName" value="Buscar" onclick="search.name()">
+                </div>
+                <div id="id">
+                    <label for="searchId">Id:</label>
+                    <input type="number" name="searchId" id="Id" placeholder="Digite um id para busca">
+                    <input type="submit" name="searchId" id="searchId" value="Buscar" onclick="search.id()">
+                </div>
+            </div>
+        </div>
+        <div id="insert">
+            <div id="up">
+                <h1>Insert</h1>
+            </div>
+            <div id="back">
+                <div id="name">
+                    <label for="name">Name:</label>
+                    <input type="text" name="name" id="insertName" placeholder="Insira o nome do cliente">
+                </div>
+                <div id="modelo">
+                    <label for="modelo">Modelo:</label>
+                    <input type="text" name="modelo" id="insertModelo" placeholder="Insira o Modelo do aparelho do cliente">
+                </div>
+                <div id="defeito">
+                    <label for="defeito">Defeito:</label>
+                    <input type="text" name="defeito" id="insertDefeito" placeholder="Insira o defeito do aparelho do cliente">
+                </div>
+                <div id="chegada">
+                    <label for="chegada">Chegada:</label>
+                    <input type="date" name="chegada" id="insertChegada">
+                </div>
+                <div id="saida">
+                    <label for="saida">Saida:</label>
+                    <input type="date" name="saida" id="insertSaida">
+                </div>
+                <div id="inserir">
+                    <input type="submit" name="insert" id="insert" value="Inserir" onclick="insert()">
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <table>
+            <thead>
+                <tr class="tit">
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Modelo</th>
+                </tr>
+                <tr id="search" class="info" style="display: none;">
+                    <td colspan="3">
+                        Buscando elementos...
+                    </td>
+                </tr>
+                <tr id="error" class="info" style="display: none;">
+                    <td colspan="3">
+                        Não foi possivel se conectar ao banco de dados
+                    </td>
+                </tr>
+                <tr id="notFound" class="info" style="display: none;">
+                    <td colspan="3">
+                        Nada foi encontrado no banco de dados
+                    </td>
+                </tr>
+            </thead>
+        </table>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>
