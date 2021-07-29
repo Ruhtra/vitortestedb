@@ -13,12 +13,12 @@ module.exports.connect = () => new Promise((resolve, reject) => {
         if (err) return reject(err)
 
         database = db.db('Users')
-        resolve(database)
+        resolve('> Connect DB with sucess!')
     })
 })
 
-module.exports.get = () => {
-    if(!database) throw new Error('Call connect DB first!')
+module.exports.get = (name) => {
+    if(!database) throw new Error('# Call connect DB first!')
 
-    return database
+    return database.collection(name)
 }
