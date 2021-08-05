@@ -8,10 +8,12 @@ async function generateId() {
     }
 }
 function filter(data) {
+    data.Valor = Number(data.Valor)
     data.Chegada = Date.parse(data.Chegada)
     data.Saida = Date.parse(data.Saida)
 
     if (data.Nome.match(/[^a-z ]/g)) throw 'Nome invalido'
+    if (isNaN(data.Valor)) throw 'Valor invalido'
     if (isNaN(data.Chegada)) throw 'Data invalida'
     if (isNaN(data.Saida)) throw 'Data invalida'
 
@@ -52,11 +54,12 @@ module.exports = {
                 Nome: (req.body.Nome || '').toString().toLowerCase().trim(),
                 Modelo: (req.body.Modelo || '').toString().trim(),
                 Defeito: (req.body.Defeito || '').toString().trim(),
+                Valor: (req.body.Valor || '').toString().trim(),
                 Chegada: (req.body.Chegada || '').toString().trim(),
                 Saida: (req.body.Saida || '').toString().trim(),
             }
             for (let e in user) if (!user[e]) return err(res)
-            
+
             try { user = filter(user) }
             catch { return err(res) }
 
