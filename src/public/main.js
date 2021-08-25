@@ -122,6 +122,17 @@ class Query {
                 events.insert('Error!', 'Houve um erro ao inserir o usuário')
             })
     }
+    del(url, params) {
+        this.xml('POST', url, params)
+            .then(() => {
+                events.insert('Sucesso!', 'Deletado com sucesso!')
+                insert.clearInput()
+                query.query('/api/search/all')
+            })
+            .catch(err => {
+                events.insert('Error!', 'Não foi possível deletar!')
+            })
+    }
 }
 class TableMessages {
     constructor (block) {
@@ -181,6 +192,9 @@ class TableMessages {
                 `<div id="Exit" class="Date item"><p>Saida:</p><p>${data.Saida}</p></div>`+
                 `<div id="Defect" class="item left"><p>Defeito:</p><p>${data.Defeito}</p></div>`+
                 `<div id="Value" class="item left"><p>Valor: R$</p><p>${data.Valor}</p></div>`+
+                `<div id="opt" class="item rigth" onclick="options.del(${data.Id})">`+
+                    `<div id="del"><svg id="del" fill-rule="evenodd" clip-rule="evenodd"><path fill="white" d="M19 24h-14c-1.104 0-2-.896-2-2v-16h18v16c0 1.104-.896 2-2 2m-9-14c0-.552-.448-1-1-1s-1 .448-1 1v9c0 .552.448 1 1 1s1-.448 1-1v-9zm6 0c0-.552-.448-1-1-1s-1 .448-1 1v9c0 .552.448 1 1 1s1-.448 1-1v-9zm6-5h-20v-2h6v-1.5c0-.827.673-1.5 1.5-1.5h5c.825 0 1.5.671 1.5 1.5v1.5h6v2zm-12-2h4v-1h-4v1z"/></svg></div>`+
+                `</div>`+
             '</div>'
 
         return newDiv
@@ -257,9 +271,17 @@ class Insert {
     }
 }
 
+class Options {
+    del(Id) {
+        var params = `Id=${Id}`
+        query.del('/api/delete/deleteOne', params)
+    }
+}
+
 const events = new Messages(window.document.querySelector('header div#event'))
 const search = new Search(window.document.querySelector('main form#search'))
 const insert = new Insert(window.document.querySelector('main form#insert'))
+const options = new Options()
 const tableMessages = new TableMessages(window.document.querySelector('main div#down'))
 
 const query = new Query()

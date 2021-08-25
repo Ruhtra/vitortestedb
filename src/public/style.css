@@ -331,7 +331,7 @@ main {
                 main div#table div.row div#More {
                     display: grid;
                     grid-auto-flow: dense;
-                    grid-template: 1fr 1fr / 4fr 1fr;
+                    grid-template: 1fr 1fr / 6fr 1fr .5fr;
                     gap: 4px;
 
                     visibility: hidden;
@@ -355,11 +355,32 @@ main {
                     padding-left: 20px;
                     font-size: 1.5em;
                 }
+                main div#table div.row div#More div.rigth {
+                    grid-column: 3 / span 1;
+                    grid-row: 1 / span 2;
+                }
                 main div#table div.row div#More div p {
                     margin: 3px;
                     color: white;
                     text-shadow: 1px 1px 2px rgba(255, 255, 255, .3);
                 }
+                /* opt */
+                    main div#table div.row div#More div#opt {
+                        padding: 10px 2px;
+                    } 
+                    /* Delete */
+                        main div#table div.row div#More div#opt div#del {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+
+                            cursor: pointer;
+                        }
+                        main div#table div.row div#More div#opt div#del svg#del {
+                            width: 25px;
+                            height: 25px;
+                        }
+
     /* Messages Table */
         main div#down div#messages {
             display: flex;

@@ -69,5 +69,20 @@ module.exports = {
             await DB.insert(user)
             return res.status(200).send()
         }
+    },
+    delete: {
+        deleteOne: async (req, res) => {
+            var id = (req.body.Id || '').toString().toLowerCase().trim()
+
+            if (!id) return err(res)
+            if (id.match(/[^0-9]/g) || id.length != 4) return err(res)
+
+            const result = await DB.delete(id);
+            if (result.deletedCount !== 1) {
+                return err(res)
+            }
+  
+            res.status(200).send()
+        }
     }
 }

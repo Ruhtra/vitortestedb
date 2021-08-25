@@ -22,5 +22,8 @@ module.exports = {
         _id: async (_id) => {
             return await DB.findOne({ _id: _id }, { projection: { _id: 0 } })
         }
+    },
+    delete: async (id) => {
+        return await DB.deleteOne({ Id: Number(id) })
     }
 }

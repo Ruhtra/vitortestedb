@@ -8,7 +8,10 @@ const use = fn => (req, res, next) => {
 router.get('/search/Name', use(controllerApi.search.Name))
 router.get('/search/Id', use(controllerApi.search.Id))
 router.get('/search/all', use(controllerApi.search.all))
+
 router.post('/insert/newUser', use(controllerApi.insert.newUser))
+
+router.post('/delete/deleteOne', use(controllerApi.delete.deleteOne))
 
 // router.get('/teste', use((req ,res) => {res.send('A test')}))
 
